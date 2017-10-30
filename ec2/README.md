@@ -1,9 +1,13 @@
-# EC2 Run
+# CloudLens Agent installer for AWS
 
-## AWS Web Console
-This script may be run using EC2 Run either by selecting AWS-RunShellScript
-and copying the contents of this script, or by running AWS-RunRemoteScript
-with the following options:
+## EC2 Instance "User Data"
+This script may be used as "user data" during EC2 instance launch to start
+the CloudLens agent.
+
+## EC2 Run via AWS Web Console
+Alternately, this script may be run using EC2 Run either by selecting
+AWS-RunShellScript and copying the contents of this script, or by running
+AWS-RunRemoteScript with the following options:
 
 * **Source Type**: GitHub
 * **Source Info**: 
@@ -17,7 +21,7 @@ with the following options:
 * **Command Line**: bash agent_install.sh
 
 
-## AWS CLI
+## EC2 Run via AWS CLI
 The AWS CLI command line for this would follow this format:
 
 ```bash

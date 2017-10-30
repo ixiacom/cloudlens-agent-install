@@ -1,8 +1,11 @@
 #!/bin/sh
 
-# This script may be run using EC2 Run either by selecting AWS-RunShellScript
-# and copying the contents of this script, or by running AWS-RunRemoteScript
-# with the following options:
+# This script may be used as "user data" during EC2 instance launch to start
+# the CloudLens agent.
+#
+# Alternately, this script may be run using EC2 Run either by selecting
+# AWS-RunShellScript and copying the contents of this script, or by running
+# AWS-RunRemoteScript with the following options:
 #
 # Source Type: GitHub
 # Source Info: {
