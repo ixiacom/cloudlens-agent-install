@@ -1,5 +1,24 @@
 #!/bin/sh
 
+# This script may be run using EC2 Run either by selecting AWS-RunShellScript
+# and copying the contents of this script, or by running AWS-RunRemoteScript
+# with the following options:
+#
+# Source Type: GitHub
+# Source Info: {
+#    "owner": "kraney",
+#    "repository": "cloudlens_install",
+#    "path": "ec2_run/agent_install.sh"
+# }
+# Command Line: bash agent_install.sh
+#
+#
+# The AWS CLI command line for this would follow this format:
+#
+# aws ssm send-command --document-name "AWS-RunRemoteScript" \
+#                      --parameters '{"sourceType":["GitHub"],"sourceInfo":["{ \"owner\": \"kraney\", \"repository\": \"cloudlens_install\", \"path\": \"ec2_run/agent_install.sh\" }"],"executionTimeout":["3600"],"commandLine":["bash agent_install.sh"]}' \
+#                      --timeout-seconds 600
+#
 # In order for this EC2 Run script to work, the following prerequisites must be met:
 #
 # The EC2 Run agent must be present and functional. This agent is present by default on Amazon Linux, however for
@@ -42,7 +61,7 @@ sudo service docker start 2> /dev/null || true
 # obtain the API key from SSM
 apikey=$(aws ssm get-parameter --name cloudlens_api_key --region us-east-1 | sudo docker run --rm -i paasmule/curl-ssl-jq jq -r .Parameter.Value)
 
-sudo docker run --name cloudlens-agent \
+if sudo docker run --name cloudlens-agent \
                 -v /:/host \
                 -v /var/run/docker.sock:/var/run/docker.sock \
                 -d \
@@ -55,4 +74,6 @@ sudo docker run --name cloudlens-agent \
                 --cap-add=NET_RAW \
                 ixiacom/cloudlens-agent \
                 --accept_eula y \
-                --apikey "$apikey"
+                --apikey "$apikey"; then
+    echo "CloudLens Agent started"
+fi
