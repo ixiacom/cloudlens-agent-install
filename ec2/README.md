@@ -13,8 +13,8 @@ AWS-RunRemoteScript with the following options:
 * **Source Info**: 
 ```json
 {
-   "owner": "kraney",
-   "repository": "cloudlens_install",
+   "owner": "ixiacom",
+   "repository": "cloudlens-agent-install",
    "path": "ec2/agent_install.sh"
 }
 ```
@@ -26,7 +26,7 @@ The AWS CLI command line for this would follow this format:
 
 ```bash
 aws ssm send-command --document-name "AWS-RunRemoteScript" \
-                     --parameters '{"sourceType":["GitHub"],"sourceInfo":["{ \"owner\": \"kraney\", \"repository\": \"cloudlens_install\", \"path\": \"ec2/agent_install.sh\" }"],"executionTimeout":["3600"],"commandLine":["bash agent_install.sh"]}' \
+                     --parameters '{"sourceType":["GitHub"],"sourceInfo":["{ \"owner\": \"ixiacom\", \"repository\": \"cloudlens-agent-install\", \"path\": \"ec2/agent_install.sh\" }"],"executionTimeout":["3600"],"commandLine":["bash agent_install.sh"]}' \
                      --timeout-seconds 600
 ```
 
