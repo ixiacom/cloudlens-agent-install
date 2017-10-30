@@ -76,11 +76,7 @@ if sudo docker run --name cloudlens-agent \
                 -d \
                 --restart=always \
                 --net=host \
-                --device=/dev/mem \
-                --cap-add=SYS_RAWIO \
-                --cap-add=SYS_ADMIN \
-                --cap-add=NET_ADMIN \
-                --cap-add=NET_RAW \
+                --privileged \
                 ixiacom/cloudlens-agent \
                 --accept_eula y \
                 --apikey "$apikey"; then

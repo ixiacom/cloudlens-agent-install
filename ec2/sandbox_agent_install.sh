@@ -77,11 +77,7 @@ if sudo docker run --name cloudlens-agent \
                 -d \
                 --restart=always \
                 --net=host \
-                --device=/dev/mem \
-                --cap-add=SYS_RAWIO \
-                --cap-add=SYS_ADMIN \
-                --cap-add=NET_ADMIN \
-                --cap-add=NET_RAW \
+                --privileged \
                 ixiacom/cloudlens-sandbox-agent \
                 --server agent.ixia-sandbox.cloud \
                 --accept_eula y \
