@@ -1,3 +1,6 @@
+# EC2 Run
+
+## AWS Web Console
 This script may be run using EC2 Run either by selecting AWS-RunShellScript
 and copying the contents of this script, or by running AWS-RunRemoteScript
 with the following options:
@@ -14,6 +17,7 @@ with the following options:
 * **Command Line**: bash agent_install.sh
 
 
+## AWS CLI
 The AWS CLI command line for this would follow this format:
 
 ```bash
@@ -22,6 +26,8 @@ aws ssm send-command --document-name "AWS-RunRemoteScript" \
                      --timeout-seconds 600
 ```
 
+
+## Prerequisites
 In order for this EC2 Run script to work, the following prerequisites must be met:
 
 * The EC2 Run agent must be present and functional. This agent is present by default on Amazon Linux, however for
