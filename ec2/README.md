@@ -53,8 +53,9 @@ more restricted access use a policy like this one:
 ```bash
 aws ssm put-parameter --name cloudlens_api_key --type String --region $REGION --value xxxxxxxxyyyyyyyyzzzzzzzz
 ```
+For more information, see [the AWS Documentation on Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html)
 
 In addition, if using this script with EC2 Run:
 
 * The EC2 Run agent must be present and functional. This agent is present by default on Amazon Linux, however for
-it to be functional, be sure to add the AmazonEC2RoleforSSM to your instance role.
+it to be functional, be sure to add the AmazonEC2RoleforSSM to your instance role. For more information, see [the AWS Documentation on EC2 Run](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html)
