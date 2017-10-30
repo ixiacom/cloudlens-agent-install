@@ -32,10 +32,7 @@ aws ssm send-command --document-name "AWS-RunRemoteScript" \
 
 
 ## Prerequisites
-In order for this EC2 Run script to work, the following prerequisites must be met:
-
-* The EC2 Run agent must be present and functional. This agent is present by default on Amazon Linux, however for
-it to be functional, be sure to add the AmazonEC2RoleforSSM to your instance role.
+In order for this script to work the following prerequisites must be met:
 
 * The SSM Parameter store is used to store the CloudLens API Key in a secure way. Ensure the parameter store is 
 accessible by the instance's role by adding the AmazonSSMReadOnlyAccess policy to your instance role, or for
@@ -56,3 +53,8 @@ more restricted access use a policy like this one:
 ```bash
 aws ssm put-parameter --name cloudlens_api_key --type String --region $REGION --value xxxxxxxxyyyyyyyyzzzzzzzz
 ```
+
+In addition, if using this script with EC2 Run:
+
+* The EC2 Run agent must be present and functional. This agent is present by default on Amazon Linux, however for
+it to be functional, be sure to add the AmazonEC2RoleforSSM to your instance role.
