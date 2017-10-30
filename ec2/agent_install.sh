@@ -11,7 +11,7 @@
 # Source Info: {
 #    "owner": "kraney",
 #    "repository": "cloudlens_install",
-#    "path": "ec2_run/agent_install.sh"
+#    "path": "ec2/agent_install.sh"
 # }
 # Command Line: bash agent_install.sh
 #
@@ -19,7 +19,7 @@
 # The AWS CLI command line for this would follow this format:
 #
 # aws ssm send-command --document-name "AWS-RunRemoteScript" \
-#                      --parameters '{"sourceType":["GitHub"],"sourceInfo":["{ \"owner\": \"kraney\", \"repository\": \"cloudlens_install\", \"path\": \"ec2_run/agent_install.sh\" }"],"executionTimeout":["3600"],"commandLine":["bash agent_install.sh"]}' \
+#                      --parameters '{"sourceType":["GitHub"],"sourceInfo":["{ \"owner\": \"kraney\", \"repository\": \"cloudlens_install\", \"path\": \"ec2/agent_install.sh\" }"],"executionTimeout":["3600"],"commandLine":["bash agent_install.sh"]}' \
 #                      --timeout-seconds 600
 #
 # In order for this EC2 Run script to work, the following prerequisites must be met:
